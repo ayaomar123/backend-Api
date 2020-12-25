@@ -6,16 +6,22 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //write your code 
-app.get('/user',(req,res)=>{
-    var user_id = req.param('id');
-    res.json({message:"Hello " +user_id});
-})
-
-
-// app.post('/user',(req,res)=>{
+//http://localhost:3000/user?id=aya
+//{"message":"Hello aya"}
+// app.get('/user',(req,res)=>{
 //     var user_id = req.param('id');
-//     res.json({"message":"hello", "name":user_id});
+//     res.json({message:"Hello " +user_id});
 // })
+
+//http://localhost:3000/user?id=aya
+
+app.post('/user',(req,res)=>{
+    const data = {"message":"Hello"};
+    const body = req.body;
+    const msg = Object.assign(data,body);
+    res.json(msg);
+    
+})
 
 app.listen(3000,()=>{
    console.log('server running on port 3000'); 

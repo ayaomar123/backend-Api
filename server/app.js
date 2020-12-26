@@ -8,18 +8,20 @@ app.use(bodyParser.json());
 //write your code 
 //http://localhost:3000/user?id=aya
 //{"message":"Hello aya"}
-// app.get('/user',(req,res)=>{
-//     var user_id = req.param('id');
-//     res.json({message:"Hello " +user_id});
-// })
+app.get('/user',(req,res)=>{
+    var user_id = req.param('id');
+    res.json({message:"Hello " +user_id});
+})
 
-//http://localhost:3000/user?id=aya
+//http://localhost:3000/user
 
 app.post('/user',(req,res)=>{
     const data = {"message":"Hello"};
     const body = req.body;
     const msg = Object.assign(data,body);
-    res.json(msg);
+    res.json(body);
+    //or
+    //res.json(msg);
     
 })
 
